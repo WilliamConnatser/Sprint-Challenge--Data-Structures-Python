@@ -13,6 +13,7 @@ f.close()
 
 '''
     Original Solution Given
+    O(n^2)
 '''
 # duplicates = []
 # for name_1 in names_1:
@@ -22,13 +23,26 @@ f.close()
 
 '''
     Solution With Binary Search Tree
+    O(nlogn)
 '''
-name_tree = BinaryTree()
+# name_tree = BinaryTree()
+# for name in names_1:
+#     name_tree.insert(name)
+# duplicates = []
+# for name in names_2:
+#     if name_tree.contains(name):
+#         duplicates.append(name)
+
+'''
+    Solution With Dictionary
+    O(n)
+'''
+name_dict = {}
 for name in names_1:
-    name_tree.insert(name)
+    name_dict[name] = True
 duplicates = []
 for name in names_2:
-    if name_tree.contains(name):
+    if name_dict.get(name, None):
         duplicates.append(name)
 
 end_time = time.time()
