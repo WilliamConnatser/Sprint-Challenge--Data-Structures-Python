@@ -15,9 +15,9 @@ f.close()
     Original Solution Given
     O(n^2)
 '''
-# duplicates = []
-# for name_1 in names_1:
-#     for name_2 in names_2:
+# duplicates = [] # Space: O(n)
+# for name_1 in names_1: # Time: O(n)
+#     for name_2 in names_2: # Time: O(n)
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
@@ -37,15 +37,14 @@ f.close()
     Solution With Dictionary
     O(n)
 '''
-name_dict = {}
-for name in names_1:
+name_dict = {} # Space: O(n)
+for name in names_1: # Time: O(n)
     name_dict[name] = True
-duplicates = []
-for name in names_2:
+duplicates = [] # Space: O(n)
+for name in names_2: # Time: O(n)
     if name_dict.get(name, None):
         duplicates.append(name)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
-
