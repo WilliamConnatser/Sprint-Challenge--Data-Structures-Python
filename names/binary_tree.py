@@ -7,7 +7,7 @@ class BinaryTree:
     def insert(self,value):
         if not self.value:
             self.value = value
-        elif self.value < value:
+        elif value < self.value:
             if not self.left:
                 self.left = BinaryTree(value)
             else:
@@ -17,3 +17,18 @@ class BinaryTree:
                 self.right = BinaryTree(value)
             else:
                 self.right.insert(value)
+
+    def contains(self,value):
+        if self.value == value:
+            return True
+        elif value < self.value:
+            if self.left:
+                return self.left.contains(value)
+            else:
+                return False
+        else:
+            if self.right:
+                return self.right.contains(value)
+            else:
+                return False
+        
